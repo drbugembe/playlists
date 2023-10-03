@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Youtube Playlists</title>
+    <title>Compress Images</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,7 +36,7 @@
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/compress">Compress Images</a>
+            <a class="nav-link" href="/">Compress Images</a>
           </li>
           
         </ul>
@@ -51,24 +51,22 @@
     <div class="row m-5">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-        <h1 class="text-center text-success">YouTube PlayLists</h1>
+        <h1 class="text-center text-success">Compress Images</h1>
         <div class="card bg-light shadow">
             <div class="card-body">
-                <h4 class="card-title">Download YouTube PlayLists</h4>
-                <form method="post" action="{% url 'index' %}">
+                <h4 class="card-title">Compress Images</h4>
+                <form method="post" action="{% url 'compress_images' %}">
                     {% csrf_token %}
-                    <div class="form-group">
-                        <label for="playlist_url">YouTube Playlist URL:</label>
-                        <input type="text" id="playlist_url" class="form-control" name="playlist_url" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="download_folder">Download Folder:</label>
-                        <input type="text" id="download_folder" class="form-control" name="download_folder" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="submit"class="btn btn-primary" value="Download">
-                    </div>
+                    <label for="inputFolder">Input Folder:</label>
+                    <input type="text" id="inputFolder" class="form-control" name="input_folder" required>
+            
+                    <label for="outputFolder">Output Folder:</label>
+                    <input type="text" id="outputFolder" class="form-control" name="output_folder" required>
+            
+                    <label for="maxFileSize">Maximum File Size (KB):</label>
+                    <input type="number" id="maxFileSize" class="form-control" name="max_file_size" required>
+            
+                    <button type="submit" class="btn btn-primary">Compress Images</button>
                 </form>
             </div>
         </div>
